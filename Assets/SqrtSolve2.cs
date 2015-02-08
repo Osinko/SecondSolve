@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Numerics;
 
-public class SqrtSolve1 : MonoBehaviour
+public class SqrtSolve2 : MonoBehaviour
 {
 		public float root;		//平方数
 		public int digit;		//計算させる桁数
@@ -18,7 +18,7 @@ public class SqrtSolve1 : MonoBehaviour
 				RootShift (root, out shiftRoot, out shiftDigit);
 				//小数点を基準に２桁ごとに区切りを入れた値　⇒　PCで計算しやすいように整数範囲へ桁移動させている
 				print (string.Format ("{0}　⇒　{1}　　digit:{2} ", root, shiftRoot, shiftDigit));
-
+		
 				sqrt = 0;
 				restArea = shiftRoot;
 		
@@ -43,7 +43,7 @@ public class SqrtSolve1 : MonoBehaviour
 				}
 				print (sqrt);
 		}
-
+	
 		public void RootShift (float root, out int shiftRoot, out int shiftDigit)
 		{
 				int digit = Mathf.FloorToInt (Mathf.Log (root, 100f));		//小数点を基準に10^2毎に区切る
@@ -57,11 +57,11 @@ public class SqrtSolve1 : MonoBehaviour
 				scale /= 2;
 				value_shift = value_shift * Mathf.Pow (100, scale);			//桁位置合わせ
 				digit -= scale;		
-
+		
 				shiftRoot = (int)value_shift;
 				shiftDigit = digit;
 		}
-
+	
 		/// <summary>
 		/// 小数点以下の桁数を取得
 		/// </summary>
